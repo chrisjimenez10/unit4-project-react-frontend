@@ -28,7 +28,34 @@ const createMeat = async (meatData) => {
     }
 };
 
+const editMeat = async (id, meatData) => {
+    try{
+        const response = await fetch(`${BASE_URL}/${id}`, {
+            method: "PUT",
+            headers: {"Content-Type": "application/json",},
+            body: JSON.stringify(meatData),
+        });
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }catch(error){
+        console.error(error.message)
+    }
+};
+
+const deleteMeat = async (id) => {
+    try{
+        const response = await fetch(`${BASE_URL}/${id}`, {
+            method: "DELETE",
+        });
+        const data = await response.json();
+        console.log(data);
+        return data;
+    }catch(error){
+        console.error(error.message)
+    }
+};
 
 
 //Export
-export {fetchMeats, createMeat};
+export {fetchMeats, createMeat, editMeat, deleteMeat};

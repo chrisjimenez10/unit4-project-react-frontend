@@ -1,7 +1,7 @@
 .input:valid {
-    background-color: green;
+    background-color: hsla(127, 46%, 70%, 0.45);
 }
 
 .input:invalid {
-    background-color: red;
+    background-color: hsla(360, 46%, 70%, 0.45);
 }

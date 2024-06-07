@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Form.module.css";
 
-const Form = ({handleCreateMeat}) => {
+const Form = ({handleCreateMeat, meatToEdit, setMeatToEdit, handleEditMeat}) => {
 
     //State
     const [formData, setFormData] = useState({
@@ -11,6 +11,19 @@ const Form = ({handleCreateMeat}) => {
         origin: "",
         price: "",
     });
+
+    //Edit Feature - Display Data of Meat that is going to be updated
+    useEffect(()=>{
+        if(meatToEdit){
+            setFormData({
+                name: meatToEdit.name,
+                type: meatToEdit.type,
+                description: meatToEdit.description,
+                origin: meatToEdit.origin,
+                price: meatToEdit.price,
+            });
+        }
+    }, [meatToEdit]);
 
     //Functions
     const handleInputChange = (e) => {
@@ -28,7 +41,12 @@ const Form = ({handleCreateMeat}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleCreateMeat(formData)
+
+        if(meatToEdit){
+            handleEditMeat(meatToEdit.id, formData);
+        }else{
+            handleCreateMeat(formData)
+        }
         setFormData({
             name: "",
             type: "",
@@ -36,6 +54,7 @@ const Form = ({handleCreateMeat}) => {
             origin: "",
             price: "",
         });
+        setMeatToEdit(null);
     };
 
   return (
@@ -57,7 +76,7 @@ const Form = ({handleCreateMeat}) => {
             {/* Here, the attribute step="0.1" only serves to allow increment or decrement of .01 --> However, it does not restrict the input to ONLY 2 decimal places if user inputs it manually */}
         <input id="price" name="price" type="number" step=".01" required value={formData.price} onChange={handleInputChange} className={styles.input}></input>
 
-        <button type="submit" disabled={formData.name === "" || formData.type === "" || formData.description === "" || formData.origin === "" || formData.price === ""}>Add</button>
+        <button type="submit" disabled={formData.name === "" || formData.type === "" || formData.description === "" || formData.origin === "" || formData.price === ""}>{meatToEdit ? "Edit" : "Add"}</button>
 
     </form>
 

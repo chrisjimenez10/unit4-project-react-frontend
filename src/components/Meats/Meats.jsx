@@ -1,5 +1,5 @@
 //Import
-import { fetchMeats, createMeat } from "../../services/meatService";
+import { fetchMeats, createMeat, editMeat, deleteMeat } from "../../services/meatService";
 import { useState, useEffect } from "react";
 import Form from "./Form/Form";
 
@@ -7,6 +7,7 @@ const Meats = () => {
 
   //State
   const [meats, setMeats] = useState([]);
+  const [meatToEdit, setMeatToEdit] = useState(null);
   const [renderForm, setRenderForm] = useState("");
 
   //Functions
@@ -22,7 +23,7 @@ const Meats = () => {
   //Populate/Re-Populate from Database
   useEffect(()=>{
     fetchMeatsDatabase();
-  }, [])
+  }, []);
 
   //Handlers
   const handleRenderForm = () => {
@@ -31,6 +32,7 @@ const Meats = () => {
       }
       if(renderForm === "form"){
         setRenderForm("");
+        setMeatToEdit(null);
       }
   };
 
@@ -43,6 +45,29 @@ const Meats = () => {
     }
   };
 
+  const handleEditMeat = async (id, meatData) => {
+    try{
+      await editMeat(id, meatData);
+      fetchMeatsDatabase();
+    }catch(error){
+      console.error(error.message)
+    }
+  };
+
+  const handleEdit = (meatData) => {
+    setMeatToEdit(meatData);
+  }
+
+  const handleDeleteMeat = async (id) => {
+    try{
+      await deleteMeat(id);
+      fetchMeatsDatabase();
+    }catch(error){
+      console.error(error.message)
+    }
+  };
+
+
   return (
 
     <>
@@ -52,6 +77,9 @@ const Meats = () => {
       {renderForm === "form" && (
         <Form 
         handleCreateMeat={handleCreateMeat}
+        meatToEdit={meatToEdit}
+        setMeatToEdit={setMeatToEdit}
+        handleEditMeat={handleEditMeat}
         />
       )}
 
@@ -62,8 +90,9 @@ const Meats = () => {
               <h3>{meat.name}</h3>
               <h3>{meat.description}</h3>
               <h3>Grown in {meat.origin}</h3>
-              <h4>Packaged in {meat.packaged}</h4>
               <h4>Price: ${meat.price}</h4>
+              <button onClick={()=> handleEdit(meat)}>Edit</button>
+              <button onClick={()=> handleDeleteMeat(meat.id)}>Delete</button>
             </li>
           )
         })}
