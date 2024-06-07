@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import styles from "./Form.module.css";
 
-const Form = () => {
+const Form = ({handleCreateMeat}) => {
 
     //State
     const [formData, setFormData] = useState({
         name: "",
+        type: "",
         description: "",
         origin: "",
         price: "",
@@ -26,26 +27,37 @@ const Form = () => {
     };
 
     const handleSubmit = (e) => {
-        
+        e.preventDefault();
+        handleCreateMeat(formData)
+        setFormData({
+            name: "",
+            type: "",
+            description: "",
+            origin: "",
+            price: "",
+        });
     };
 
   return (
 
     <form onSubmit={handleSubmit}>
         <label htmlFor="name">Name: </label>
-        <input id="name" name="name" type="text" required value={formData.name} onChange={handleInputChange}></input>
+        <input id="name" name="name" type="text" required value={formData.name} onChange={handleInputChange} className={styles.input}></input>
+
+        <label htmlFor="type">Type: </label>
+        <input id="type" name="type" type="text" required value={formData.type} onChange={handleInputChange} className={styles.input}></input>
 
         <label htmlFor="description">Description: </label>
-        <input id="description" name="description" type="text" required value={formData.description} onChange={handleInputChange}></input>
+        <input id="description" name="description" type="text" required value={formData.description} onChange={handleInputChange} className={styles.input}></input>
 
         <label htmlFor="origin">Origin: </label>
-        <input id="origin" name="origin" type="text" required value={formData.origin} onChange={handleInputChange}></input>
+        <input id="origin" name="origin" type="text" required value={formData.origin} onChange={handleInputChange} className={styles.input}></input>
 
         <label htmlFor="price">Price: </label>
             {/* Here, the attribute step="0.1" only serves to allow increment or decrement of .01 --> However, it does not restrict the input to ONLY 2 decimal places if user inputs it manually */}
-        <input id="price" name="price" type="number" step=".01" required value={formData.price} onChange={handleInputChange}></input>
+        <input id="price" name="price" type="number" step=".01" required value={formData.price} onChange={handleInputChange} className={styles.input}></input>
 
-        <button type="submit">Add</button>
+        <button type="submit" disabled={formData.name === "" || formData.type === "" || formData.description === "" || formData.origin === "" || formData.price === ""}>Add</button>
 
     </form>
 

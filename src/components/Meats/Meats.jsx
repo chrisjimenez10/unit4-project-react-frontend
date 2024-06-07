@@ -34,6 +34,15 @@ const Meats = () => {
       }
   };
 
+  const handleCreateMeat = async (meatData) => {
+    try{
+      await createMeat(meatData);
+      fetchMeatsDatabase();
+    }catch(error){
+      console.error(error.message)
+    }
+  };
+
   return (
 
     <>
@@ -41,7 +50,9 @@ const Meats = () => {
 
       <button onClick={handleRenderForm}>Form</button>
       {renderForm === "form" && (
-        <Form />
+        <Form 
+        handleCreateMeat={handleCreateMeat}
+        />
       )}
 
       <ol>
