@@ -1,11 +1,13 @@
 //Import
-import { fetchMeats } from "../../services/meatService";
+import { fetchMeats, createMeat } from "../../services/meatService";
 import { useState, useEffect } from "react";
+import Form from "./Form/Form";
 
 const Meats = () => {
 
   //State
   const [meats, setMeats] = useState([]);
+  const [renderForm, setRenderForm] = useState("");
 
   //Functions
   const fetchMeatsDatabase = async () => {
@@ -22,10 +24,26 @@ const Meats = () => {
     fetchMeatsDatabase();
   }, [])
 
+  //Handlers
+  const handleRenderForm = () => {
+      if(renderForm === ""){
+        setRenderForm("form");
+      }
+      if(renderForm === "form"){
+        setRenderForm("");
+      }
+  };
+
   return (
 
     <>
       <h1>Meats</h1>
+
+      <button onClick={handleRenderForm}>Form</button>
+      {renderForm === "form" && (
+        <Form />
+      )}
+
       <ol>
         {meats.map((meat)=>{
           return(
