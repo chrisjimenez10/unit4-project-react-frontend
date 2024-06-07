@@ -25,7 +25,20 @@ const Meats = () => {
   return (
 
     <>
-      
+      <h1>Meats</h1>
+      <ol>
+        {meats.map((meat)=>{
+          return(
+            <li key={meat.id}>
+              <h3>{meat.name}</h3>
+              <h3>{meat.description}</h3>
+              <h3>Grown in {meat.origin}</h3>
+              <h4>Packaged in {meat.packaged}</h4>
+              <h4>Price: ${meat.price}</h4>
+            </li>
+          )
+        })}
+      </ol>
     </>
 
   )

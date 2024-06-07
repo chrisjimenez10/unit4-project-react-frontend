@@ -13,7 +13,19 @@ const fetchMeats = async () => {
     }
 };
 
+const createMeat = async (meatData) => {
+    try{
+        const response = await fetch(BASE_URL, {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify(meatData),
+        });
+    }catch(error){
+        console.error(error.message)
+    }
+};
+
 
 
 //Export
-export {fetchMeats};
+export {fetchMeats, createMeat};
