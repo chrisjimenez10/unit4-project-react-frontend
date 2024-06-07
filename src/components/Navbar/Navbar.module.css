@@ -1,0 +1,12 @@
+.navContainer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.link {
+    color: goldenrod;
+    text-decoration: none;
+    background-color: beige;
+    padding: 0 10px 0 10px;
+    border-radius: 10px;
+}
