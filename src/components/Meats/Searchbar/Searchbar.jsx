@@ -13,7 +13,7 @@ const Searchbar = ({meats, setFilteredMeats}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const filteredListOfMeats = meats.filter((meat)=>{return meat.name.toLowerCase().includes(input.toLowerCase())});
+        const filteredListOfMeats = meats.filter((meat)=>{return meat.description.toLowerCase().includes(input.toLowerCase())});
         setFilteredMeats(filteredListOfMeats);
     };
 
@@ -26,8 +26,8 @@ const Searchbar = ({meats, setFilteredMeats}) => {
 
     <>
         <form onSubmit={handleSubmit}>
-        <label htmlFor="search">Search Meat: </label>
-        <input id="search" type="text" value={input} onChange={handleInputChange} />
+        <label htmlFor="search">Search Meat by Source: </label>
+        <input id="search" type="text" value={input} onChange={handleInputChange} placeholder='animal'/>
         <button type="submit">search</button>
         <button onClick={handleClear}>clear</button>
         </form>

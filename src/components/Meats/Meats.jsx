@@ -104,7 +104,7 @@ const Meats = () => {
           return(
             <li key={meat.id}>
               <dt>{meat.name}</dt>
-              <dd>{meat.description}</dd>
+              <dd>Source: {meat.description}</dd>
               <dd>Grown in {meat.origin}</dd>
               <dd>Price: ${meat.price}</dd>
               <button onClick={()=> handleEdit(meat)}>edit</button>

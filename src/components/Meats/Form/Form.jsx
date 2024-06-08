@@ -65,7 +65,7 @@ const Form = ({handleCreateMeat, meatToEdit, setMeatToEdit, handleEditMeat}) => 
         {/* <label htmlFor="type">Type: </label>
         <input id="type" name="type" type="text" required value={formData.type} onChange={handleInputChange} className={styles.input}></input> */}
 
-        <label htmlFor="description">Description: </label>
+        <label htmlFor="description">Source: </label>
         <input id="description" name="description" type="text" required value={formData.description} onChange={handleInputChange} className={styles.input}></input>
 
         <label htmlFor="origin">Origin: </label>
