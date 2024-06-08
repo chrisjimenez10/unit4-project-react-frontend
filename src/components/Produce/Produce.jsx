@@ -1,10 +1,12 @@
-
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const Produce = () => {
 
   return (
 
-    <div>Produce</div>
+    <>
+      <ShoppingCart />
+    </>
 
   )
 }

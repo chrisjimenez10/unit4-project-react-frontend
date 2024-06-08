@@ -1,18 +1,26 @@
 //Import
 import { fetchMeats, createMeat, editMeat, deleteMeat } from "../../services/meatService";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import { ShoppingCartContext } from "../../App";
 import Form from "./Form/Form";
 import Searchbar from "./Searchbar/Searchbar";
-
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const Meats = () => {
+
+  //Using the useContext() Hook to access the state (or any value that is passed like a function, state, etc.) that is Provided from the Parent Component --> We can create a variable that we can use to access the properties of the Provider (values being passed to it) by setting it equal to the useContext() Hook and the argument set to the variable holding the createContext() that was exported from the Parent Component (App) --> NOTE: If we are passing multiple values to through the Provider, we MUST pass them as an object - THEREFORE, the "useContext(ShoppingCartContext)" IS the object itself, all of it --> so we only need to use dot notation after the parenthesis to access the value we want
+  const {addToCart} = useContext(ShoppingCartContext);
+
+  //Shopping Cart Function
+  const addItemToCart = (item) => {
+    addToCart(item);
+  };
 
   //State
   const [meats, setMeats] = useState([]);
   const [filteredMeats, setFilteredMeats] = useState([]);
   const [meatToEdit, setMeatToEdit] = useState(null);
   const [renderForm, setRenderForm] = useState("");
-
 
   //Functions
   const fetchMeatsDatabase = async () => {
@@ -101,12 +109,13 @@ const Meats = () => {
               <dd>Price: ${meat.price}</dd>
               <button onClick={()=> handleEdit(meat)}>edit</button>
               <button onClick={()=> handleDeleteMeat(meat.id)}>delete</button>
+              <button onClick={()=> addItemToCart(meat)}>+</button>
             </li>
           )
         })}
       </ol>
 
-      
+      <ShoppingCart />
 
     </>
 
