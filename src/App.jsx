@@ -16,13 +16,14 @@ const App = () => {
   //State --> This is the state we want to access from ALL of our components, so we will have to pass it as the value to the Provider
   const [shoppingCart, setShoppingCart] = useState([]);
 
-  //Functions
+  //Functions - Shopping Cart 
+    //NOTE: Keep the stateSetter() functions in the App component (or wherever we are creating the context and Provider) and create a function that will invoke the stateSetter() function, but will be the one to be passed as a value through the Provider --> This avoids conflicts/bugs with updating state when we simply pass the stateSetter() function itself
   const addToCart = (item) => {
     setShoppingCart([...shoppingCart, item]);
-    console.log(shoppingCart);
   };
 
   const removeFromCart = (itemId) => {
+    //Using the index value of the element as filtering logic to KEEP any other duplicate items (if we pass the item.id from the ShoppingCart component, then this logic will filer out ALL items with the same item.id)
     setShoppingCart(shoppingCart.filter((item, index)=>{return index !== itemId}));
   };
 
