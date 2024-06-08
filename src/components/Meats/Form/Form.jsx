@@ -49,7 +49,6 @@ const Form = ({handleCreateMeat, meatToEdit, setMeatToEdit, handleEditMeat}) => 
         }
         setFormData({
             name: "",
-            type: "",
             description: "",
             origin: "",
             price: "",
@@ -63,8 +62,8 @@ const Form = ({handleCreateMeat, meatToEdit, setMeatToEdit, handleEditMeat}) => 
         <label htmlFor="name">Name: </label>
         <input id="name" name="name" type="text" required value={formData.name} onChange={handleInputChange} className={styles.input}></input>
 
-        <label htmlFor="type">Type: </label>
-        <input id="type" name="type" type="text" required value={formData.type} onChange={handleInputChange} className={styles.input}></input>
+        {/* <label htmlFor="type">Type: </label>
+        <input id="type" name="type" type="text" required value={formData.type} onChange={handleInputChange} className={styles.input}></input> */}
 
         <label htmlFor="description">Description: </label>
         <input id="description" name="description" type="text" required value={formData.description} onChange={handleInputChange} className={styles.input}></input>
@@ -76,7 +75,7 @@ const Form = ({handleCreateMeat, meatToEdit, setMeatToEdit, handleEditMeat}) => 
             {/* Here, the attribute step="0.1" only serves to allow increment or decrement of .01 --> However, it does not restrict the input to ONLY 2 decimal places if user inputs it manually */}
         <input id="price" name="price" type="number" step=".01" required value={formData.price} onChange={handleInputChange} className={styles.input}></input>
 
-        <button type="submit" disabled={formData.name === "" || formData.type === "" || formData.description === "" || formData.origin === "" || formData.price === ""}>{meatToEdit ? "Edit" : "Add"}</button>
+        <button type="submit" disabled={formData.name === "" || formData.description === "" || formData.origin === "" || formData.price === ""}>{meatToEdit ? "Edit" : "Add"}</button>
 
     </form>
 

@@ -14,13 +14,10 @@ const ShoppingCart = () => {
   const priceFieldArray = shoppingCart.map((item)=>{
     return parseFloat(item.price);
   });
-  // console.log(priceFieldArray);
-
+ 
   const sumOfPrices = priceFieldArray.reduce((accumulator, currentValue)=>{
     return (accumulator + currentValue);
   }, 0);
-  // console.log(sumOfPrices);
-
 
 
   return (
@@ -32,6 +29,7 @@ const ShoppingCart = () => {
       :
       <>
         <dt>Item(s): {shoppingCart.length} - Total: ${sumOfPrices.toFixed(2)}</dt>
+        <button>checkout</button>
         <ul>
           {shoppingCart.map((item, index)=>{
             return(
