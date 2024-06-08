@@ -8,10 +8,10 @@ const ProduceForm = ({ handleAddProduce }) => {
     });
 
     const handleChange = (event) => {
-        setFormData({...formData, [event.target.name]: event.target.name});
+        setFormData({...formData, [event.target.name]: event.target.value});
     };
 
-    const handleSumbit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
         console.log('Form submitted', formData);
         handleAddProduce(formData);
@@ -21,8 +21,8 @@ const ProduceForm = ({ handleAddProduce }) => {
         <div>
             <h2>Add new items to the Produce list</h2>
             <hr />
-            <form onSubmit={handleSumbit}>
-                <label htmlFor="name">Name</label>
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="name">Name </label>
                 <input
                     id="name"
                     name="name"
@@ -30,7 +30,7 @@ const ProduceForm = ({ handleAddProduce }) => {
                     onChange={handleChange}
                     required
                 />
-                <label htmlFor="price">Price</label>
+                <label htmlFor="price">Price </label>
                 <input
                     id="price"
                     name="price"
@@ -38,7 +38,7 @@ const ProduceForm = ({ handleAddProduce }) => {
                     onChange={handleChange}
                     required
                 />
-                <label htmlFor="type">Type</label>
+                <label htmlFor="type">Type </label>
                 <input
                     id="type"
                     name="type"
