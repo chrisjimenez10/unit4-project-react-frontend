@@ -4,7 +4,6 @@ import { useState, useEffect, useContext } from "react";
 import { ShoppingCartContext } from "../../App";
 import Form from "./Form/Form";
 import Searchbar from "./Searchbar/Searchbar";
-import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const Meats = () => {
 
@@ -114,8 +113,6 @@ const Meats = () => {
           )
         })}
       </ol>
-
-      <ShoppingCart />
 
     </>
 

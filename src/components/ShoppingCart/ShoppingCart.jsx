@@ -1,7 +1,6 @@
 //Import
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../App";
-import { Link } from "react-router-dom";
 import { arrayOfPriceService, sumOfPriceService } from "../../services/shoppingcart";
 
 
@@ -24,7 +23,6 @@ const ShoppingCart = () => {
       :
       <>
         <dt>Item(s): {shoppingCart.length} - Total: ${sumOfPrices.toFixed(2)}</dt>
-        <Link to="/checkout"><button>checkout</button></Link>
         <ul>
           {shoppingCart.map((item, index)=>{
             return(

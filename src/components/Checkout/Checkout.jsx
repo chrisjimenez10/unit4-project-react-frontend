@@ -1,24 +1,16 @@
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../App";
+import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const Checkout = () => {
     const {shoppingCart} = useContext(ShoppingCartContext);
-    console.log(shoppingCart);
+    console.log([...shoppingCart]);
 
   return (
 
     <>
-        <h1>My Shopping Cart</h1>
-        <ul>
-            {shoppingCart.map((item, index)=>{
-                return(
-                    <li key={index}>
-                        <dd>{item.name}</dd>
-                    </li>
-                )
-            })}
-        </ul>
-    
+        <ShoppingCart />
+        <button>Place Order</button>
     </>
 
   )
