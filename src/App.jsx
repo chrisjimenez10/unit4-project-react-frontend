@@ -6,6 +6,7 @@ import Beverages from "./components/Beverages/Beverages";
 import Meats from "./components/Meats/Meats";
 import Produce from "./components/Produce/Produce";
 import Snacks from "./components/Snacks/Snacks";
+import Checkout from "./components/Checkout/Checkout";
 
 //createContext Hook and set value to "null" --> NOTE: The value is the default value if useContext is used outside of the provider, but we plan on using it within components that are INSIDE the provider so they can access the state we are passing to the provider itself, so it is common to set value to "null" because we are passing actual data in the form of state
 export const ShoppingCartContext = createContext(null); //Exporting the variable that holds the createContext, so it can be imported and used ANY or ALL components that are inside the Provider
@@ -39,7 +40,8 @@ const App = () => {
           <Route path="/produce" element={<Produce />}>Produce</Route>
           <Route path="/meats" element={<Meats />}>Meats</Route>
           <Route path="/beverages" element={<Beverages />}>Beverages</Route>
-          <Route path="/snacks" element={<Snacks />}>Snacks</Route>
+          <Route path="/snacks" element={<Snacks />}>Snacks</Route>         
+          <Route path="/checkout" element={<Checkout />}>Checkout</Route>         
       </Routes>
       </ShoppingCartContext.Provider>
     </main>

@@ -1,6 +1,7 @@
 //Import
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../App";
+import { Link } from "react-router-dom";
 
 
 const ShoppingCart = () => {
@@ -29,14 +30,14 @@ const ShoppingCart = () => {
       :
       <>
         <dt>Item(s): {shoppingCart.length} - Total: ${sumOfPrices.toFixed(2)}</dt>
-        <button>checkout</button>
+        <Link to="/checkout"><button>checkout</button></Link>
         <ul>
           {shoppingCart.map((item, index)=>{
             return(
               <li key={index}>
                 <dd>{item.name} - ${item.price}</dd>
                 {/* For the removeFromCart() function, we are passing the index of the item that from the array that is appended as items are added to the shoppingCart state variable because if we use the item.id as the key identifier --> It will remove ALL items with that item.id value, but we want to remove only a single element of the shoppingCart array --> This way, we can have multiple idetnical items and when we remove we only remove ONE of those and not ALL of the same name/item.id */}
-                <button onClick={()=> removeFromCart(index)}>remove</button>
+                <button onClick={()=> removeFromCart(index)}>-</button>
               </li>
             )
           })}

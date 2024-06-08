@@ -89,7 +89,7 @@ const Meats = () => {
 
       <Searchbar meats={meats} setFilteredMeats={setFilteredMeats}/>
 
-      <dt onClick={handleRenderForm}>Form</dt>
+      <dt onClick={handleRenderForm} style={{textDecoration: "underline", cursor: "pointer"}}>Form</dt>
       {renderForm === "form" && (
         <Form 
         handleCreateMeat={handleCreateMeat}
