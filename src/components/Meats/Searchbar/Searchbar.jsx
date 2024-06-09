@@ -26,7 +26,7 @@ const Searchbar = ({meats, setFilteredMeats}) => {
   return (
 
     <>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className={styles.form}>
         <label htmlFor="search">Search Meat by Source: </label>
         <input id="search" type="text" value={input} onChange={handleInputChange} placeholder='animal'/>
         <button type="submit" className={styles.searchButton}>search</button>

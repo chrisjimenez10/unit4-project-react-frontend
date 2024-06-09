@@ -46,5 +46,21 @@
     font-style: italic;
 }
 
+.formTitle {
+    background-color: lightgray;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    width: 50px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.meatTitle {
+    text-align: center;
+}
+
 
 

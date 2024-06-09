@@ -85,11 +85,11 @@ const Meats = () => {
   return (
 
     <>
-      <h1>Meats</h1>
+      <h1 className={styles.meatTitle}>Meats</h1>
 
       <Searchbar meats={meats} setFilteredMeats={setFilteredMeats}/>
 
-      <dt onClick={handleRenderForm} style={{textDecoration: "underline", cursor: "pointer"}}>Form</dt>
+      <dt onClick={handleRenderForm} className={styles.formTitle}>Form</dt>
       {renderForm === "form" && (
         <Form 
         handleCreateMeat={handleCreateMeat}
