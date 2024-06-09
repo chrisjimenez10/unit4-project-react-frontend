@@ -4,6 +4,7 @@ import { useState, useEffect, useContext } from "react";
 import { ShoppingCartContext } from "../../App";
 import Form from "./Form/Form";
 import Searchbar from "./Searchbar/Searchbar";
+import styles from "./Meats.module.css";
 
 const Meats = () => {
 
@@ -101,14 +102,16 @@ const Meats = () => {
       <ol>
         {filteredMeats.map((meat)=>{
           return(
-            <li key={meat.id}>
-              <dt>{meat.name}</dt>
+            <li key={meat.id} className={styles.listItems}>
+              <dt className={styles.meatName}>{meat.name}</dt>
               <dd>Source: {meat.description}</dd>
-              <dd>Grown in {meat.origin}</dd>
+              <dd className={styles.origin}>Grown in {meat.origin}</dd>
               <dd>Price: ${meat.price}</dd>
-              <button onClick={()=> handleEdit(meat)}>edit</button>
-              <button onClick={()=> handleDeleteMeat(meat.id)}>delete</button>
-              <button onClick={()=> addItemToCart(meat)}>+</button>
+              <div className={styles.buttonGroup}>
+                <button onClick={()=> handleEdit(meat)} className={styles.updateButton}>edit</button>
+                <button onClick={()=> handleDeleteMeat(meat.id)} className={styles.deleteButton}>delete</button>
+                <button onClick={()=> addItemToCart(meat)} className={styles.shoppingListButton}>+</button>
+              </div>
             </li>
           )
         })}

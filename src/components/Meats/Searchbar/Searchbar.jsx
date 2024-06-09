@@ -1,4 +1,5 @@
 import { useState } from "react";
+import styles from "./Searchbar.module.css";
 
 const Searchbar = ({meats, setFilteredMeats}) => {
 
@@ -28,8 +29,8 @@ const Searchbar = ({meats, setFilteredMeats}) => {
         <form onSubmit={handleSubmit}>
         <label htmlFor="search">Search Meat by Source: </label>
         <input id="search" type="text" value={input} onChange={handleInputChange} placeholder='animal'/>
-        <button type="submit">search</button>
-        <button onClick={handleClear}>clear</button>
+        <button type="submit" className={styles.searchButton}>search</button>
+        <button onClick={handleClear} className={styles.clearButton}>clear</button>
         </form>
     </>
 
