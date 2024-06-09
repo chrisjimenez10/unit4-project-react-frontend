@@ -58,8 +58,9 @@ const UpdateProduceForm = ({ selectedProduce, updateProduce, setView }) => {
                     onChange={handleChange}
                     required
                 />
-                <button type="submit">Update</button>
+                <button className="update-button" type="submit">Update</button>
             </form>
+            <button className="back-button" onClick={() => setView('list')}>Back to the list</button>
         </>
     )
 }

@@ -19,10 +19,10 @@ const ProduceForm = ({ handleAddProduce, setView }) => {
     };
 
     return (
-        <div>
-            <h2>Add new items to the Produce list</h2>
+        <div className="form-container">
+            <h2>Add new item to the Produce list</h2>
             <hr />
-            <form onSubmit={handleSubmit}>
+            <form className="produce-form" onSubmit={handleSubmit}>
                 <label htmlFor="name">Name </label>
                 <input
                     id="name"
@@ -47,9 +47,9 @@ const ProduceForm = ({ handleAddProduce, setView }) => {
                     onChange={handleChange}
                     required
                 />
-                <button type="submit">Add item to the produce list</button>
+                <button className="button" type="submit">Add item to the produce list</button>
             </form>
-            <button onClick={() => setView('list')}>Back to the list</button>
+            <button className="button back-button" onClick={() => setView('list')}>Back to the list</button>
         </div>
     )
 };

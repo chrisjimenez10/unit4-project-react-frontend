@@ -7,13 +7,16 @@ const ProduceList = ({ produceList, setView, setSelectedProduce }) => {
     }
 
     return (
-        <div>
-            <ul>
-                {produceList.map((item) => (
-                    <li key={item.id} onClick={(event) => handleClick(event, item)}><a href="" >{item.name}</a></li>
-                ))}
-            </ul>
-            <button onClick={() => setView('new')}>Add New Item to the Produce List</button>
+        <div className="container">
+            <h1 className="title">Produce</h1>
+                <div className="produce-list-container">
+                    <ul className="produce-list">
+                        {produceList.map((item) => (
+                            <li className="produce-item" key={item.id} onClick={(event) => handleClick(event, item)}><a href="" >{item.name}</a></li>
+                        ))}
+                    </ul>
+                </div>
+                <button onClick={() => setView('new')}>Add New Item to the Produce List</button>
         </div>
     )
 }
