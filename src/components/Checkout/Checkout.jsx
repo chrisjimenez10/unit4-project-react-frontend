@@ -22,12 +22,14 @@ const Checkout = () => {
   return (
 
     <>
+    <div className="container">
         <ShoppingCart />
         <button disabled={shoppingCart.length === 0} onClick={handlePurchase}>Place Order</button>
 
         <h1>Order History</h1>
         <dd>-list item</dd>
         <dd>-list item</dd>
+    </div>
     </>
 
   )

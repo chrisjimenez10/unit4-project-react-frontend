@@ -1,0 +1,28 @@
+.Specials {
+    border: 1px solid black;
+    color: aliceblue;
+    background: rgba(250, 213, 165, 0.1);
+    backdrop-filter: blur(25px);
+    padding: 10px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.Specials h1 {
+    color: #00008B;
+    text-shadow: #fdaa5f 2px 2px 2px;
+    font-size: 2.5rem;
+    margin: 0;
+}
+
+.wrapper {
+    background-color: #fdaa5f;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    width: 100vw;
+    height: 300px;
+    border-radius: 30px;
+}

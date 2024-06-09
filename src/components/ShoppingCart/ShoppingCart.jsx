@@ -1,6 +1,7 @@
 //Import
 import { useContext } from "react";
 import { ShoppingCartContext } from "../../App";
+import './ShoppingCart.css'
 import { arrayOfPriceService, sumOfPriceService } from "../../services/shoppingcart";
 
 
@@ -17,6 +18,7 @@ const ShoppingCart = () => {
   return (
 
     <>
+    <div className="container">
       <h1>Shopping Cart</h1>
 
       {shoppingCart.length === 0 ? <h3>-- No Items --</h3>
@@ -36,7 +38,9 @@ const ShoppingCart = () => {
             )
           })}
         </ul>
+        
       </>}
+      </div>
     </>
 
   )

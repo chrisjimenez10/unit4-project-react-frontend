@@ -13,6 +13,7 @@ export const ShoppingCartContext = createContext(null); //Exporting the variable
 
 
 const App = () => {
+  
 
   //State --> This is the state we want to access from ALL of our components, so we will have to pass it as the value to the Provider
   const [shoppingCart, setShoppingCart] = useState([]);
@@ -44,6 +45,7 @@ const App = () => {
           <Route path="/checkout" element={<Checkout />}>Checkout</Route>         
       </Routes>
       </ShoppingCartContext.Provider>
+      
     </main>
 
   )
