@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-const ProduceForm = ({ handleAddProduce }) => {
+const ProduceForm = ({ handleAddProduce, setView }) => {
     const [formData, setFormData] = useState({
         name: '',
         price: '',
@@ -15,6 +15,7 @@ const ProduceForm = ({ handleAddProduce }) => {
         event.preventDefault();
         console.log('Form submitted', formData);
         handleAddProduce(formData);
+        setView('list');
     };
 
     return (
@@ -48,6 +49,7 @@ const ProduceForm = ({ handleAddProduce }) => {
                 />
                 <button type="submit">Add item to the produce list</button>
             </form>
+            <button onClick={() => setView('list')}>Back to the list</button>
         </div>
     )
 };

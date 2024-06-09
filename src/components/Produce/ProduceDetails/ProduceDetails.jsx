@@ -1,4 +1,5 @@
-const ProduceDetails = ({ selectedProduce, setView }) => {
+const ProduceDetails = ({ selectedProduce, setView, deleteProduce }) => {
+    
     return (
         <>
             <div>
@@ -6,8 +7,8 @@ const ProduceDetails = ({ selectedProduce, setView }) => {
                 <p>${selectedProduce.price}</p>
                 <p>{selectedProduce.type}</p>
             </div>
-            <button>Update Produce Item</button>
-            <button>Delete Produce Item</button>
+            <button onClick={() => setView('edit')}>Update Produce Item</button>
+            <button onClick={() => deleteProduce(selectedProduce.id)}>Delete Produce Item</button>
             <button onClick={() => setView('list')}>Back to All Items</button>
         </>
     )
