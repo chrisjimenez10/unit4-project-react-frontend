@@ -1,0 +1,66 @@
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+}
+
+.deleteButton {
+    background-color: #f44336;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.updateButton{
+    background-color: #4caf50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.shoppingListButton {
+    background-color: rgb(95, 169, 238);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.meatName {
+    color: black;
+    font-weight: bold;
+}
+
+.listItems {
+    font-weight: bold;
+}
+
+.origin {
+    font-style: italic;
+}
+
+.formTitle {
+    background-color: lightgray;
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+    width: 50px;
+    margin-left: 10px;
+    padding: 5px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.meatTitle {
+    text-align: center;
+}
+
+
+
