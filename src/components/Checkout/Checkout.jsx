@@ -1,16 +1,33 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { ShoppingCartContext } from "../../App";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const Checkout = () => {
-    const {shoppingCart} = useContext(ShoppingCartContext);
-    console.log([...shoppingCart]);
+    const {shoppingCart, setShoppingCart} = useContext(ShoppingCartContext);
+    console.log("Shopping Cart: ", [...shoppingCart]);
+    const copyShoppingCart = [...shoppingCart];
+
+    //State
+    const [purchasedOrder, setPurchasedOrder] = useState();
+
+    //Functions
+    const handlePurchase = () => {
+        //Todo - Function with logic to input purchased order data into database with the following fields: username, order
+
+        setPurchasedOrder(copyShoppingCart);
+        setShoppingCart([]);
+    };
+    console.log( "Submitted order: ", purchasedOrder);
 
   return (
 
     <>
         <ShoppingCart />
-        <button>Place Order</button>
+        <button disabled={shoppingCart.length === 0} onClick={handlePurchase}>Place Order</button>
+
+        <h1>Order History</h1>
+        <dd>-list item</dd>
+        <dd>-list item</dd>
     </>
 
   )

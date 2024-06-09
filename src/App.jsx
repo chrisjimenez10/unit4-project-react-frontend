@@ -33,7 +33,7 @@ const App = () => {
     
     <main>
       {/* If we want to pass mulitple values to the Provider, we need to do it as an object --> NOTE: This is why there are two sets of curly braces, the first is JSX syntax and the other is the object we are creating to hold all the values we are passing (similar to how we export multiple functions in a js file) */}
-      <ShoppingCartContext.Provider value={{shoppingCart, addToCart, removeFromCart}}>
+      <ShoppingCartContext.Provider value={{shoppingCart, addToCart, removeFromCart, setShoppingCart}}>
       <Navbar />
       <Routes>
           <Route path="/" element={<Home />}>Home</Route>
