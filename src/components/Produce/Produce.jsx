@@ -10,7 +10,6 @@ const Produce = () => {
   const [view, setView] = useState('list')
   const [produceList, setProduceList] = useState([]);
 
-
   useEffect(() => {
     const fetchProduce = async () => {
       try {

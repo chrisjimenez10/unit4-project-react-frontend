@@ -1,8 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ShoppingCartContext } from '../../App';
 import { fetchBeverages } from '../../services/beverage';
 import './Beverages.css';
 
 const Beverages = () => {
+  const {addToCart} = useContext(ShoppingCartContext);
+  const addItemToCart = (item) => {
+    addToCart(item);
+  };
+
   const [beverages, setBeverages] = useState([]); // creating a state variable for the beverages
   const [newBeverageName, setNewBeverageName] = useState(''); // creating a state variable for the new beverage name
   const [newBeveragePrice, setNewBeveragePrice] = useState(''); // creating a state variable for the new beverage price
@@ -134,6 +140,7 @@ const Beverages = () => {
                     <div className="beverage-date">Added at: {beverage.createdAt}</div>
                   </div>
                   <div className="button-group">
+                    <button onClick={()=> addItemToCart(beverage)}>+</button>
                     <button className="button update-button" onClick={() => handleUpdateClick(beverage)}>Update</button>
                     <button className="button delete-button" onClick={() => deleteBeverage(beverage.id)}>Delete</button>
                     <button
@@ -145,6 +152,7 @@ const Beverages = () => {
                     >                      
                       Toggle Description
                     </button>
+                    
                   </div>
                 </div>
                 <>
