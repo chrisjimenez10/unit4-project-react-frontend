@@ -1,8 +1,14 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { ShoppingCartContext } from '../../App';
 import * as SnackService from '../../services/snacks';
 import '../../components/Snacks/snacks.css';
 
 const Snacks = () => {
+  const {addToCart} = useContext(ShoppingCartContext);
+  const addItemToCart = (item) => {
+    addToCart(item);
+  };
+
   const [snackList, setSnackList] = useState([]);
   const [newSnack, setNewSnack] = useState({
     name: '',
@@ -162,6 +168,7 @@ const Snacks = () => {
               <button onClick={() => handleUpdateView(snack)}>Update</button>
               <button onClick={() => handleDelete(snack.id)}>Delete</button>
               <button onClick={handleShow}>Show</button>
+              <button onClick={()=> addItemToCart(snack)}>+</button>
               </div>
               {show ? 
               <div className='description'>
