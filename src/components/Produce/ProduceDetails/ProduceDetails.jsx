@@ -10,15 +10,17 @@ const ProduceDetails = ({ selectedProduce, setView, deleteProduce }) => {
     
     return (
         <>
-            <div>
-                <h3>{selectedProduce.name}</h3>
-                <p>${selectedProduce.price}</p>
-                <p>{selectedProduce.type}</p>
+            <div className="description">
+                <h3 className="produce-name">{selectedProduce.name}</h3>
+                <p className="produce-price">${selectedProduce.price}</p>
+                <p className="produce-details">{selectedProduce.type}</p>
             </div>
-            <button onClick={() => setView('edit')}>Update Produce Item</button>
-            <button onClick={() => deleteProduce(selectedProduce.id)}>Delete Produce Item</button>
-            <button onClick={() => setView('list')}>Back to All Items</button>
-            <button onClick={()=> addItemToCart(selectedProduce)}>+</button>
+            <div className="button-group">
+                <button className="button update-button" onClick={() => setView('edit')}>Update Produce Item</button>
+                <button className="button delete-button" onClick={() => deleteProduce(selectedProduce.id)}>Delete Produce Item</button>
+                <button className="back-button" onClick={() => setView('list')}>Back to All Items</button>
+                <button onClick={()=> addItemToCart(selectedProduce)}>+</button>
+            </div>
         </>
     )
 }
