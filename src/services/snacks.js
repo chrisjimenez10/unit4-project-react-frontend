@@ -16,7 +16,7 @@ const fetchSnacks = async() => {
 //delete
 const deleteSnack = async (snackId) => {
 
-        const deletedSnack = await fetch(`http://127.0.0.1:8000/${snackId}`, {
+        const deletedSnack = await fetch(`${BASE_URL}/${snackId}`, {
             method: 'DELETE',
         });
         if (!deletedSnack.ok) {
