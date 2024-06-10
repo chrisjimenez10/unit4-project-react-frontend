@@ -4,6 +4,7 @@ import ProduceList from "./ProduceList/ProduceList.jsx";
 import ProduceForm from "./ProduceForm/ProduceForm.jsx";
 import ProduceDetails from "./ProduceDetails/ProduceDetails.jsx";
 import UpdateProduceForm from "./UpdateProduceForm/UpdateProduceForm.jsx";
+import './style.css'
 
 const Produce = () => {
   const [selectedProduce, setSelectedProduce] = useState(null);
