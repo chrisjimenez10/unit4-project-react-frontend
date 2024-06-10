@@ -1,4 +1,4 @@
-import Beverages from "../Beverages/Beverages";
+
 import { useState, useEffect } from "react";
 import './Home.css';
 
@@ -14,7 +14,7 @@ const Home = () => {
 
 
 <div className="container">
-  <h3>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus dolorem praesentium ea ullam sapiente ut veniam et incidunt. Alias, cumque. Explicabo quidem eius vero doloribus esse numquam facere itaque rerum.</h3>
+  <h3>Hey there, code wizard! Welcome to Dev Foods, the grocery store built by developers, for developers. We’ve debugged your hunger and compiled the freshest groceries straight to your cart. Whether you’re a full-stack snacker or a front-end foodie, we’ve got everything to keep your code clean and your stomach happy. Need a break from that infinite loop? Grab a basket, put on your best debugging face, and git commit to some seriously tasty food. At Dev Foods, we turn food cravings into feature releases! Happy shopping, and may your forks be ever in your favor!</h3>
 </div>
 
 <div className="container" style={{ display: 'flex', justifyContent: 'space-between',gap:'10px' }}>
@@ -45,7 +45,8 @@ const Home = () => {
       </div>
 
       <div className="wrapper">
-       <h1>Our Products</h1>
+       <h1>Our Most Popular Products</h1>
+      
        
       </div>
       
