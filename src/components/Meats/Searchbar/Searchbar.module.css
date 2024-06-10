@@ -1,0 +1,30 @@
+.buttonGroup {
+    display: flex;
+    gap: 10px;
+}
+
+.searchButton {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    background-color: goldenrod;
+    color: white;
+    margin-left: 10px;
+}
+
+.clearButton {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;    
+    background-color: black;
+    color: white;
+    margin-left: 10px;
+}
+
+.form {
+    text-align: center;
+}

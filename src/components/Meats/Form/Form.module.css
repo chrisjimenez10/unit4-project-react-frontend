@@ -1,0 +1,18 @@
+.input:valid {
+    background-color: hsla(127, 46%, 70%, 0.45);
+}
+
+.input:invalid {
+    background-color: hsla(360, 46%, 70%, 0.45);
+}
+
+.addButton {
+    background-color: #011f5b;
+    color: white;
+    margin-top: 10px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
